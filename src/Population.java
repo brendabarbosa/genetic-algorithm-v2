@@ -14,7 +14,9 @@ public class Population {
             individuals.add(new Individual());
         }
     }
-
+    /**
+     * avaliação de população
+     */
     public void calculateFitness(){
         for (Individual individual: this.individuals) {
             individual.calculateFitness();
@@ -51,6 +53,9 @@ public class Population {
         System.out.println("\t\tFitness = "+fittest.getFitness());
     }
 
+    /**
+     * e) geração de nova população
+     */
     public void evolve(){
         List<Individual> newIndividuals = new ArrayList<>();
         generateWheel();
@@ -68,6 +73,10 @@ public class Population {
         this.individuals = newIndividuals;
         this.fittest = null;
     }
+
+    /**
+     * d) Método de mutação = por taxa
+     */
     public void mutate(){
         for (Individual individual: this.individuals) {
             if(Math.random() >= Constants.MUTATERATE){
@@ -94,6 +103,9 @@ public class Population {
 //        }
     }
 
+    /**
+     * d) Método de recombinação = crossover
+     */
     private Individual crossover(Individual parent1, Individual parent2){
         Random random = new Random();
         int crossOverPoint = 5;
@@ -108,6 +120,10 @@ public class Population {
         return new Individual(newChromosome);
     }
 
+    /**
+     * c) método de seleção = wheel selection
+     *
+     */
     private Individual selectParent(){
         Random random = new Random();
         Integer randomIndex = random.nextInt(1, wheelSelector.size());

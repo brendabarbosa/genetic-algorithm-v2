@@ -27,6 +27,10 @@ public class Individual {
     public int getGene(int i){
         return chromosome[i];
     }
+
+    /**
+     * b) Função de aptidão
+     */
     public void calculateFitness(){
         result = (int) (5*this.x + Math.pow(this.y,2) + this.w +  Math.pow(this.z,3));
         if(result == 0){
@@ -58,6 +62,9 @@ public class Individual {
         return sb.toString();
     }
 
+    /**
+     * a) Codificação de cromossomos, quantidade de genes pra cada número
+     */
     private void decode(){
         String chromosomeX = String.valueOf(chromosome[0])+String.valueOf(chromosome[1]);
         String chromosomeY = String.valueOf(chromosome[2])+String.valueOf(chromosome[3])+String.valueOf(chromosome[4]);
