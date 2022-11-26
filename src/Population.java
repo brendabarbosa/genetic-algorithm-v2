@@ -36,7 +36,7 @@ public class Population {
             System.out.print("\t\tY = "+individual.getY());
             System.out.print("\t\tZ = "+individual.getZ());
             System.out.print("\t\tResult = "+individual.getResult());
-            System.out.print("\t\tChromosome = "+fittest.getChromosomeToString());
+            System.out.print("\t\tChromosome = "+individual.getChromosomeToString());
             System.out.println("\t\tFitness = "+individual.getFitness());
         }
         System.out.println();
@@ -108,7 +108,7 @@ public class Population {
      */
     private Individual crossover(Individual parent1, Individual parent2){
         Random random = new Random();
-        int crossOverPoint = 5;
+        int crossOverPoint = random.nextInt(parent1.getChromosome().length);
         int[] newChromosome = new int[parent1.getChromosome().length];
         for (int i = 0; i < parent1.getChromosome().length; i++) {
             if (i > crossOverPoint) {

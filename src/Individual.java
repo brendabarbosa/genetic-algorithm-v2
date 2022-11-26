@@ -34,14 +34,15 @@ public class Individual {
     public void calculateFitness(){
         result = (int) (5*this.x + Math.pow(this.y,2) + this.w +  Math.pow(this.z,3));
         if(result == 0){
-            fitness = 0;
+            this.fitness = 0;
             return;
         }
 
         if(result <= Constants.FINALVALUE){
-            fitness = result*100/Constants.FINALVALUE;
+            this.fitness = result*100/Constants.FINALVALUE;
         }else{
-            fitness = (100 - ((result-Constants.FINALVALUE)/Constants.FINALVALUE)*100);
+            double value = (100 - ((result-Constants.FINALVALUE)/Constants.FINALVALUE)*100);
+            this.fitness = value > 0 ? value : 0;
         }
     }
 
